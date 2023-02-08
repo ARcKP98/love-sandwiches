@@ -84,7 +84,7 @@ def calculate_surplus_data(sales_row):
 
 
 def update_surplus_worksheet(data):
-    ''' 
+    '''
     Update surplus worksheet. Add a new row with the result
     calulated.
     '''
@@ -107,8 +107,8 @@ def update_worksheet(data, worksheet):
 
 def get_last_5_entries_sales():
     '''
-    Collects columns of data from sales worksheet, 
-    collecting the last five entries for each sandwich 
+    Collects columns of data from sales worksheet,
+    collecting the last five entries for each sandwich
     and returns the data as a list of lists.
     '''
     sales = SHEET.worksheet("sales")
@@ -117,24 +117,24 @@ def get_last_5_entries_sales():
     for ind in range(1, 7):
         column = sales.col_values(ind)
         columns.append(column[-5:])
-    
+
     return columns
 
 
 def calculate_stock_data(data):
     '''
-    Calculate average stock data for each item type, 
-    plus 10%. 
+    Calculate average stock data for each item type,
+    plus 10%.
     '''
     print("Calculating the stock data...\n")
     new_stock_data = []
-    
-    for column in data: 
+
+    for column in data:
         int_column = [int(num) for num in column]
         average = sum(int_column) / len(int_column)
         stock_num = average * 1.1
         new_stock_data.append(round(stock_num))
-    
+
     return new_stock_data
 
 
